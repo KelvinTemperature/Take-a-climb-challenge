@@ -1,0 +1,78 @@
+.container{
+    margin-left: 10%;
+    margin-right: 10%;
+    background-color: antiquewhite;
+    width: 80%;
+    border-radius: 15px;
+}
+h1{
+    margin-left: 20px;
+    margin-top: 20px;
+}
+#display{
+    background-color: #ccc;
+    margin-left: 5px;
+    margin-right: 5px;
+	padding-left: 3px;
+	border-radius: 5px;
+}
+
+a{
+    text-decoration-line: none;
+    color: black;
+	text-emphasis: bold;
+}
+.del{
+	background-color: red;
+	background-size: cover;
+	border-radius: 5px;
+	object-position: right;
+}
+.edit{
+	background-color: blue;
+	background-size:cover;
+	border-radius: 5px;
+	object-position: right;
+}
+#contact{
+    background-color: gray;
+    font-size: 20px;
+    display:none;
+    font-weight: bold;
+    border-radius: 10px;
+    size: 30;
+    padding: 5px;
+}
+#addcontact{
+    font-size: 30px;
+    background-color: red;
+    outline: dashed;
+    outline-color: beige;
+    border-radius: 10px;
+    float: center;
+}
+
+label{
+	text-emphasis: bold;
+}
+input{
+    border-radius: 8px;
+    size: 45;
+   /* margin-left: 5em;*/
+}
+#save{
+    color: white;
+    background-color: green;
+    height: 30px;
+    font-size: 20px;
+    float:center;
+    border-radius: 10px;
+}
+#cancel{
+    font-size: 18px;
+    height: 30px;
+    background-color: red;
+    border-radius: 10px;
+    float: center;
+    color: white;
+}
