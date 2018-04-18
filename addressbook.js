@@ -81,7 +81,7 @@ window.onload = function () {
         } else{
             addBook = JSON.parse(localStorage['addressbook']);
             for (let j in addBook){
-                let str = "<label><a class='name' data-id=" + j + " href='#'>" + addBook[j].name + "</a></label>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" + "<label><a href='#' class='edit'  data-id=" + j +">Edit</a></label>&emsp;&emsp; <label><a class='del' data-id=" + j + " href='#'>Delete</a><label><hr>";
+                let str = "<div id='title'><label><a class='name' data-id=" + j + " href='#'>" + addBook[j].name + "</a></label></div>&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;" + "<div id='action'><label><a href='#' class='edit'  data-id=" + j +"><span class='edit-icon'>&#9998;</span></a></label>&emsp;&emsp; <label><a class='del' data-id=" + j + " href='#'>Delete</a></label></div><hr>";
                 display.innerHTML += str;
             }
         }
@@ -95,36 +95,37 @@ window.onload = function () {
             dis();
         }
 		else if(e.target.classList.contains('name')){    
-        	
-        //    addBook = JSON.parse(localStorage['addressbook']);
+        	if(localStorage['addressbook'] === undefined){
+            	localStorage['addressbook'] = '[]';
+				} else{
+					addBook = JSON.parse(localStorage['addressbook']);
 				if(shw.innerHTML == ''){
 					let dataId = e.target.getAttribute('data-id');
 					for (dataId in addBook){
 					let st = "<label>Number:</label>&emsp;&emsp;&emsp;&emsp;" + addBook[dataId].num + "<br>" + "<label>Email:</label>&emsp;&emsp;&emsp;&emsp;" + addBook[dataId].email + "<br>" + "<label>Address:</label>&emsp;&emsp;&emsp;&emsp;" + addBook[dataId].address;
-						alert("Name:" +"					" + addBook[dataId].name +
-							 "Phone Number:" + "					");
-//            		shw.innerHTML += st;
+					shw.innerHTML += st;
 					}
 				}else if(shw.innerHTML != ''){
 					shw.innerHTML = '';
 					}
+				}
             }
 			else if(e.target.classList.contains('edit')){
-//				if(localStorage['addressbook'] === undefined){
-//            	localStorage['addressbook'] = '[]';
-//				} else{
-//				addBook = JSON.parse(localStorage['addressbook']);
+				if(localStorage['addressbook'] === undefined){
+            	localStorage['addressbook'] = '[]';
+				} else{
+				addBook = JSON.parse(localStorage['addressbook']);
 				let dataId = e.target.getAttribute('data-id');
-				for(dataId in addBook){
+				for(let k in addBook){
 					contact.style.display = 'inline-block';
-					name.value = addBook[dataId].name;
-					email.value = addBook[dataId].email;
-					num.value = addBook[dataId].num;
-					address.value = addBook[dataId].address;
+					name.value = addBook[k].name;
+					email.value = addBook[k].email;
+					num.value = addBook[k].num;
+					address.value = addBook[k].address;
 					save.addEventListener('click', function(){
 //						addBook[dataId] = [];
 						let nv = new structure(name.value, num.value, email.value, address.value);
-						addBook[dataId].push(nv);
+						addBook[k].push(nv);
 						localStorage['addressbook'] = JSON.stringify(addBook);
 						dis();
 //						addBook[l].name = name.value;
@@ -137,4 +138,5 @@ window.onload = function () {
 				}
 			}
 		}
+	}
 };

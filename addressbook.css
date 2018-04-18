@@ -26,7 +26,7 @@ a{
 	background-color: red;
 	background-size: cover;
 	border-radius: 5px;
-	object-position: right;
+	width: 2em;
 }
 .edit{
 	background-color: blue;
@@ -50,6 +50,20 @@ a{
     outline-color: beige;
     border-radius: 10px;
     float: center;
+}
+
+#action{
+	float: right;
+}
+
+#title{
+	float: left;
+}
+
+.edit-icon {
+  display: inline-block;
+  transform: rotateZ(90deg);
+  width: 2em;
 }
 
 label{
